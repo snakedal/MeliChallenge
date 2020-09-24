@@ -5,9 +5,9 @@ Greetings!!
 
 In the following document you will find the necessary information to clone, import and run, a SpingBoot application that has as purpose to find ship Position and Message as specified in the Challenge suggested, the solution is also UP in AWS so if you want to validate the endpoints the URLs to do so are the followings and the steps shown in the local testing part are the same just change the URLs mentioned for this ones:
 
-1. http://findshipandmessage2-env.sa-east-1.elasticbeanstalk.com/topsecret (GET)
-2. http://findshipandmessage2-env.sa-east-1.elasticbeanstalk.com/topsecret_split/{satellite_name} (POST)
-3. http://findshipandmessage2-env.sa-east-1.elasticbeanstalk.com/topsecret_split/{satellite_name} (GET)
+1. http://Findshipandmessage2-env.sa-east-1.elasticbeanstalk.com/topsecret (GET)
+2. http://Findshipandmessage2-env.sa-east-1.elasticbeanstalk.com/topsecret_split/{satellite_name} (POST)
+3. http://Findshipandmessage2-env.sa-east-1.elasticbeanstalk.com/topsecret_split/{satellite_name} (GET)
 
 HOW TO CLONE THE PROJECT 
 
@@ -78,6 +78,10 @@ NOTE: Please have in ind that the correct satellite Names are: kenobi, sato and 
 
 Example:
 For the Endpoint testing please in PostMan select in the Body Tab "Raw" and "JSON", one example message is the ones shown below, also have in mind the tipe of the request POST OR GET for the corresponding Endpoint. 
+
+Data
+
+Please Have in mind that the program is made to receive in distance decimal values, and in message an array of Strings as shown in the examples below.
 
 1. http://localhost:8080/topsecret (GET)
 
@@ -214,6 +218,8 @@ STATUS CODE 404
     "message": "Not enough information received to get position and message",
     "path": "//topsecret_split/skywalker"
 }
+
+Please have in mind that the same response message will be shown if is not possible to find the positon or the message.
 
 
 
