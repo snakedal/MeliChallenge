@@ -9,7 +9,9 @@ In the following document you will find the necessary information to clone, impo
 2. http://findshipandmessage2-env.sa-east-1.elasticbeanstalk.com/topsecret_split/{satellite_name} (POST)
 3. http://findshipandmessage2-env.sa-east-1.elasticbeanstalk.com/topsecret_split/{satellite_name} (GET)
 
-HOW TO CLONE THE PROJECT To clone the project, please, follow the next steps:
+HOW TO CLONE THE PROJECT 
+
+To clone the project, please, follow the next steps:
 
 Open GitBash.
 
@@ -25,7 +27,9 @@ Open Eclipse IDE and go to the path "File -> Open..." and select the folder Find
 
 It should appear in your IDE Project Explorer, the project "FindShipAndMessage"
 
-EXPLAINING PROJECT FILES The project has one big package: ⦁ "com.challenge" This one has the springBootApplication defined in the class "FindShipAndMessageApplication.java", this class is the one that should be ran to validate the functionality, and inside this package you will find other six packages: 
+EXPLAINING PROJECT FILES 
+
+The project has one big package: ⦁ "com.challenge" This one has the springBootApplication defined in the class "FindShipAndMessageApplication.java", this class is the one that should be ran to validate the functionality, and inside this package you will find other six packages: 
 
 1. "controller": The controller is were we defined all three RequestMapping that we will use: /topsecret, (POST) /topsecret_split/{satellite_name} and (GET)/topsecret_split/{satellite_name}. 
 2. "dto": The DTO is where we will find the Objects used to wrap some valus in Objects to work easier with the values.
@@ -34,12 +38,17 @@ EXPLAINING PROJECT FILES The project has one big package: ⦁ "com.challenge" Th
 5. "service": In this package we define the interface that models the methods that we will be implementing and the class that implements it calls all the proper methos in our util package to do all the hard work calculating our values, or just persisting the message to the H2 DB.
 6. "util": In this Packge we define the class in which we will define the methods that are used accros the app to do the proper caculations and some other methods used to simplify the code comprehension. 
 
-RESOURCE FOLDER In the path "src/main/resources" you will find one file: 
+RESOURCE FOLDER 
+
+In the path "src/main/resources" you will find one file: 
+
 1. application.properties This file was only used to define some properties that were needed for the h2 DB connection. 
 
 JUNIT FOLDER At the path "src/test/java" you will find a package named "com.challenge" this package contains the class responsable for the Junits that we thought were pertinent for this problem.
 
-RUNNING THE PROJECT To Run the Project follow these steps:
+RUNNING THE PROJECT 
+
+To Run the Project follow these steps:
 
 Go to the class "FindShipAndMessageApplication.java", right click it and run it as a "Spring Boot App"
 
