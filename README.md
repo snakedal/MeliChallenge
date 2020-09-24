@@ -3,9 +3,9 @@ Challenge Meli FindShipAndPosition
 
 Greetings!!
 
-In the following document you will find the necessary information to clone, import and run, a SpingBoot application that has as purpose to find ship Position and Message as specified in the Challenge suggested, the solution is also UP in AWS so if you want to validate the endpoints the URLs to do so are the followings and the steps shown in the local testing part are the same just change the URLs mentioned for this ones:
+In the following document you will find the necessary information to clone, import and run, a SpingBoot application that has as purpose to find a ship Position and Message as specified in the Challenge suggested, the solution is also UP in AWS so if you want to validate the endpoints the URLs to do so are the following and the steps shown in the "local testing" part are the same, just change the URLs mentioned for this ones:
 
-1. http://Findshipandmessage2-env.sa-east-1.elasticbeanstalk.com/topsecret (GET)
+1. http://Findshipandmessage2-env.sa-east-1.elasticbeanstalk.com/topsecret (POST)
 2. http://Findshipandmessage2-env.sa-east-1.elasticbeanstalk.com/topsecret_split/{satellite_name} (POST)
 3. http://Findshipandmessage2-env.sa-east-1.elasticbeanstalk.com/topsecret_split/{satellite_name} (GET)
 
@@ -17,23 +17,23 @@ Open GitBash.
 
 Go to the path in your local machine where you want to clone the project.
 
-Clone the repository using the URL: https://github.com/snakedal/MeliChallenge.git  it will ask for credentials, please input as user: snakedal and as password: PrivateRepositorySnakedal, wait for the project to download completely
+Clone the repository using the URL: https://github.com/snakedal/MeliChallenge.git  it will ask for credentials, please input as user: snakedal and as password: PrivateRepositorySnakedal , wait for the project to download completely
 
 Ok, so now that the project has been successfully downloaded, lets import it to our IDE, in this hand book we are going to use IntelliJ IDE
 
 HOW TO IMPORT THE PROJECT
 
-Open Eclipse IDE and go to the path "File -> Open..." and select the folder FindShipAndMessage inside the folder challengeMeli that was download using the clone instruction, and click the OK button.
+Open IntelliJ IDE and go to the path "File -> Open..." and select the folder FindShipAndMessage inside the folder challengeMeli that was download using the clone instruction, and click the OK button.
 
 It should appear in your IDE Project Explorer, the project "FindShipAndMessage"
 
 EXPLAINING PROJECT FILES 
 
-The project has one big package: ⦁ "com.challenge" This one has the springBootApplication defined in the class "FindShipAndMessageApplication.java", this class is the one that should be ran to validate the functionality, and inside this package you will find other six packages: 
+The project has one big package: "com.challenge" This one has the springBootApplication defined in the class "FindShipAndMessageApplication.java", this class is the one that should be ran to validate the functionality, and inside this package you will find other six packages: 
 
-1. "controller": The controller is were we defined all three RequestMapping that we will use: /topsecret, (POST) /topsecret_split/{satellite_name} and (GET)/topsecret_split/{satellite_name}. 
+1. "controller": The controller is were we defined all three RequestMapping that we will use:(POST) /topsecret, (POST) /topsecret_split/{satellite_name} and (GET)/topsecret_split/{satellite_name}. 
 2. "dto": The DTO is where we will find the Objects used to wrap some valus in Objects to work easier with the values.
-3. "model" : The model is the one that has the mapping for the table that will be created in our h2 DB, named SATELLITE_MESSAGES, this table has three columns: "SATELLITE_NAME", DISTANCE and "MESSAGE", this table is used generally to persist the correct messages sent using the API (POST) /topsecret_split/{satellite_name}, please have in mind that the GET API does not persist the message sent, just uses it when the request is made.
+3. "model" : The model is the one that has the mapping for the table that will be created in our H2 DB, named "SATELLITE_MESSAGES", this table has three columns: "SATELLITE_NAME", "DISTANCE" and "MESSAGE", this table is used generally to persist the correct messages sent using the API (POST) /topsecret_split/{satellite_name}, please have in mind that the GET API does not persist the message sent, just uses the ones persisted or the one sent when the request is made.
 4. "repository": This one is where we define the functions for our DB but we only extend it to the class CrudRepository so that we were able to use the functions already defined there. 
 5. "service": In this package we define the interface that models the methods that we will be implementing and the class that implements it calls all the proper methos in our util package to do all the hard work calculating our values, or just persisting the message to the H2 DB.
 6. "util": In this Packge we define the class in which we will define the methods that are used accros the app to do the proper caculations and some other methods used to simplify the code comprehension. 
@@ -51,11 +51,11 @@ At the path "src/test/java" you will find a package named "com.challenge" this p
 
 COMPILING THE PROJECT
 
-This is a Maven project so to run it please go to the gitBashconsole and in the folder FindShipAndMessage imported to the IDE, type the following command
+This is a Maven project so to run it please go to the gitBash console and in the folder FindShipAndMessage imported to the IDE, type the following command
 
 mvn clean install
 
-so the project will start it's compilation and generate the corresponding files tu run properly.
+so the project will start it's compilation and generate the corresponding files to run properly.
 
 RUNNING THE PROJECT 
 
@@ -70,7 +70,7 @@ To validate the three Endpoints exposed by this app you we used postman to send 
 local testing
 
 Once the APP is up and running you will be able to send requests to the following URLs:
-1. http://localhost:8080/topsecret (GET)
+1. http://localhost:8080/topsecret (POST)
 2. http://localhost:8080/topsecret_split/{satellite_name} (POST)
 3. http://localhost:8080/topsecret_split/{satellite_name} (GET)
 
@@ -83,7 +83,7 @@ Data
 
 Please Have in mind that the program is made to receive in distance decimal values, and in message an array of Strings as shown in the examples below.
 
-1. http://localhost:8080/topsecret (GET)
+1. http://localhost:8080/topsecret (POST)
 
 This message should work and show a successfull response
 
