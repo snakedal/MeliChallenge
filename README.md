@@ -38,13 +38,24 @@ The project has one big package: ⦁ "com.challenge" This one has the springBoot
 5. "service": In this package we define the interface that models the methods that we will be implementing and the class that implements it calls all the proper methos in our util package to do all the hard work calculating our values, or just persisting the message to the H2 DB.
 6. "util": In this Packge we define the class in which we will define the methods that are used accros the app to do the proper caculations and some other methods used to simplify the code comprehension. 
 
+Extra: The project has jacoco plugin so in case that is needed to validate the coverage metrics, please follow the steps mentioned below and after compiling the project please go to the IDE and you will find a "target" folder, inside it there is another folder named "jacoco-ut" open it and open the file "index.html" with your browser so that the metrics are shown.
+
 RESOURCE FOLDER 
 
 In the path "src/main/resources" you will find one file: 
 
 1. application.properties This file was only used to define some properties that were needed for the h2 DB connection. 
 
-JUNIT FOLDER At the path "src/test/java" you will find a package named "com.challenge" this package contains the class responsable for the Junits that we thought were pertinent for this problem.
+JUNIT FOLDER 
+At the path "src/test/java" you will find a package named "com.challenge" this package contains the class responsable for the Junits that we thought were pertinent for this problem.
+
+COMPILING THE PROJECT
+
+This is a Maven project so to run it please go to the gitBashconsole and in the folder FindShipAndMessage imported to the IDE, type the following command
+
+mvn clean install
+
+so the project will start it's compilation and generate the corresponding files tu run properly.
 
 RUNNING THE PROJECT 
 
