@@ -64,8 +64,9 @@ public class FindShipAndMessageControllerTest {
 
     @Test
     public void topSecretTest() throws Exception {
+        HttpServletResponse httpServletResponse = Mockito.mock(HttpServletResponse.class);
         when(findShipAndMessageImpl.topSecret(satellites)).thenReturn(responsePositionAndMessage);
-        ResponsePositionAndMessage response = findShipAndMessageController.topSecret(messageFull);
+        ResponsePositionAndMessage response = findShipAndMessageController.topSecret(messageFull, httpServletResponse);
 
         assertEquals(responsePositionAndMessage.getMessage(), response.getMessage());
         assertEquals(responsePositionAndMessage.getPosition(), response.getPosition());
@@ -84,8 +85,9 @@ public class FindShipAndMessageControllerTest {
     @Test
     public void getTopSecretSplitTest() throws Exception {
 
+        HttpServletResponse httpServletResponse = Mockito.mock(HttpServletResponse.class);
         when(findShipAndMessageImpl.getTopSecretSplit(any(SatelliteMessages.class))).thenReturn(responsePositionAndMessage);
-        ResponsePositionAndMessage response = findShipAndMessageController.getTopSecretSplit(satelliteName, messageOneSatellite);
+        ResponsePositionAndMessage response = findShipAndMessageController.getTopSecretSplit(satelliteName, messageOneSatellite, httpServletResponse);
 
         assertEquals(responsePositionAndMessage.getMessage(), response.getMessage());
         assertEquals(responsePositionAndMessage.getPosition(), response.getPosition());
@@ -94,8 +96,8 @@ public class FindShipAndMessageControllerTest {
 
     @Test(expected = Exception.class)
     public void getTopSecretSplitExceptionErrorTest() throws Exception {
-
-        ResponsePositionAndMessage response = findShipAndMessageController.getTopSecretSplit(satelliteName, messageOneSatellite);
+        HttpServletResponse httpServletResponse = Mockito.mock(HttpServletResponse.class);
+        ResponsePositionAndMessage response = findShipAndMessageController.getTopSecretSplit(satelliteName, messageOneSatellite, httpServletResponse);
 
         assertEquals(responsePositionAndMessage.getMessage(), response.getMessage());
         assertEquals(responsePositionAndMessage.getPosition(), response.getPosition());
@@ -104,9 +106,10 @@ public class FindShipAndMessageControllerTest {
 
     @Test
     public void getTopSecretSplitNotFoundTest() throws Exception {
+        HttpServletResponse httpServletResponse = Mockito.mock(HttpServletResponse.class);
         when(findShipAndMessageImpl.getTopSecretSplit(any(SatelliteMessages.class))).thenReturn(responsePositionAndMessageError);
         try {
-            ResponsePositionAndMessage response = findShipAndMessageController.getTopSecretSplit(satelliteName, messageOneSatellite);
+            ResponsePositionAndMessage response = findShipAndMessageController.getTopSecretSplit(satelliteName, messageOneSatellite, httpServletResponse);
         } catch (Exception e) {
             assertEquals("Not enough information received to get position and message", e.getMessage());
         }
