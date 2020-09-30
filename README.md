@@ -17,7 +17,7 @@ Open GitBash.
 
 Go to the path in your local machine where you want to clone the project.
 
-Clone the repository using the URL: https://github.com/snakedal/MeliChallenge.git  it will ask for credentials, please input as user: snakedal and as password: PrivateRepositorySnakedal , wait for the project to download completely
+Clone the repository using the URL: https://github.com/snakedal/MeliChallenge.git, wait for the project to download completely
 
 Ok, so now that the project has been successfully downloaded, lets import it to our IDE, in this hand book we are going to use IntelliJ IDE
 
